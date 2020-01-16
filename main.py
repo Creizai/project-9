@@ -94,22 +94,22 @@ def update_contact():
         print('5. None! Get me outta here!')
         update = int(input('Enter #:'))
         if(update == 1):
-            print(f'Old Name: ' {contact.name})
+            print(f'Old Name: {contact.name}')
             contact.name = input("Enter New Name: ")
             contact.save()
             print('Name Changed!')
         elif(update == 2):
-            print(f'Old Phone Number: ' {contact.phone})
+            print(f'Old Phone Number: {contact.phone}')
             contact.phone = input("Enter New Phone Number: ")
             contact.save()
             print('Phone Number Changed!')            
         elif(update == 3):
-            print(f'Old Address: ' {contact.address})
+            print(f'Old Address: {contact.address}')
             contact.address = input("Enter New Address: ")
             contact.save()
             print('Address Changed!')            
         elif(update == 4):
-            print(f'Old Description: ' {contact.description})
+            print(f'Old Description: {contact.description}')
             contact.description = input("Enter New Description: ")
             contact.save()
             print('Description Changed!')            
