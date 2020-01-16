@@ -44,7 +44,7 @@ def get_contact(name):
 # Use Select all contacts and a For Loop iterate through all contacts to print them
 def all_contacts():
     contacts = Contact.select()
-    print('--CONTACTS BOOK--')
+    print('\n--CONTACTS BOOK--')
     for contact in contacts:
         print(f'Name: {contact.name}')
         print(f'Phone Number: {contact.phone}')
