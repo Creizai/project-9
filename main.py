@@ -58,15 +58,14 @@ def all_contacts():
     contacts = Contact.select()
     # print(f'Read name: {contact.name} Phone Number: {contact.phone} Address: {contact.address} Description: {contact.description}')
     # Contact.select()
-    print('-----------------')
     print('--CONTACTS BOOK--')
     for contact in contacts:
-        print('-----------------')
+        print('-----------------\n')
         print(contact.name)
         print(contact.phone)
         print(contact.address)
         print(contact.description)
-        print('-----------------')
+        print('\n-----------------')
     
 
 
@@ -85,14 +84,14 @@ def all_contacts():
 def update_contact():
     name = str(input("Enter the name of the contact you want to Delete: "))
     contact = Contact.get(Contact.name == name)
-    contact.save()
+    contact.save("\n Updated Contact! \n")
 
 # Delete:
 # zakk.delete_instance()
 def delete_contact():
     name = str(input("Enter the name of the contact you want to Delete: "))
     contact = Contact.get(Contact.name == name)
-    contact.delete_instance()
+    contact.delete_instance("\n Deleted Contact!\n")
 
 
 # print(f"{zakk.name} was born on {zakk.birthday}")
