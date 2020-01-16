@@ -46,12 +46,11 @@ def all_contacts():
     contacts = Contact.select()
     print('--CONTACTS BOOK--')
     for contact in contacts:
-        print('-----------------\n')
-        print(f'Contact {contact.name}')
+        print(f'Name: {contact.name}')
         print(f'Phone Number: {contact.phone}')
         print(f'Address: {contact.address}')
         print(f'Description: {contact.description}')
-        print('\n-----------------')
+        print('-----------------')
 
 def update_contact():
     name = str(input("\nEnter the name of the contact you want to Update: "))
@@ -88,18 +87,13 @@ def update_contact():
             print('Description Changed!')            
 
 # Delete:
-# zakk.delete_instance()
 def delete_contact():
     name = str(input("Enter the name of the contact you want to Delete: "))
     contact = Contact.get(Contact.name == name)
     contact.delete_instance()
     print("\n Deleted Contact!\n")
 
-
-# print(f"{zakk.name} was born on {zakk.birthday}")
-# print(f"{erin.name} was born on {erin.birthday}")
-# print(f"{roger.name} was born on {roger.birthday}")
-
+# Program Start
 navigation = 0
 while navigation != 5:
     print('\nContacts Book\n')
@@ -117,3 +111,4 @@ while navigation != 5:
         update_contact()
     elif(navigation == 4):
         delete_contact()
+print('Thanks for using Contacts Book!')
