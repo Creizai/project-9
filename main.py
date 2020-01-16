@@ -91,7 +91,7 @@ def update_contact():
         print('2. Phone Number')
         print('3. Address')
         print('4. Description')
-        print('5. None! Get me outta here!)
+        print('5. None! Get me outta here!')
         update = int(input('Enter #:'))
         if(update == 1):
             print(f'Old Name: ' {contact.name})
