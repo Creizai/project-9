@@ -20,70 +20,43 @@ class Contact(BaseModel):
 # Connect to the PSQL database:
 db.connect()
 
-
 # Drop existing tables (if they exist):
 # db.drop_tables([Contact])
 
 # Create tables
 db.create_tables([Contact])
 
-
+#Create new Contact
 def create_contact():
     new_name = input("Enter the Contact's Name: ")
     new_phone = input("Enter the Contact's Phone Number: ")
     new_address = input("Enter the Contact's Address: ")
     new_description = input("Enter the Contact's description: ")
-
+    #Create new Contact Instance with users data
     new_contact = Contact(name=new_name, phone=new_phone, address=new_address, description=new_description)
     new_contact.save()
-
-# adam = Contact(
-#     name="Adam", 
-#     phone=(5134179949), 
-#     address="4802 Chief Chris Kyle Ct", 
-#     description="Loud and annoying")
-# adam.save()
-# erin = Contact(name="Erin", phone=2025171777, address="509 7th St NW, Washington, DC 20004", birthday=date(1986, 1, 27), description="The Head SEI34 Instructor")
-# roger = Contact(name="Roger", phone=2025171777, address="509 7th St NW, Washington, DC 20004", birthday=date(1990, 5, 27), description="The Head SEI34 Instructor")
-# zakk.save()
-# erin.save()
-# roger.save()
 
 # Read: (.get() and .select())
 def get_contact(name):
     contact = Contact.get(Contact.name == name)
     print(f'Read name: {contact.name} Phone Number: {contact.phone} Address: {contact.address} Description: {contact.description}')
 
+# Use Select all contacts and a For Loop iterate through all contacts to print them
 def all_contacts():
     contacts = Contact.select()
-    # print(f'Read name: {contact.name} Phone Number: {contact.phone} Address: {contact.address} Description: {contact.description}')
-    # Contact.select()
     print('--CONTACTS BOOK--')
     for contact in contacts:
         print('-----------------\n')
-        print(contact.name)
-        print(contact.phone)
-        print(contact.address)
-        print(contact.description)
+        print(f'Contact {contact.name}')
+        print(f'Phone Number: {contact.phone}')
+        print(f'Address: {contact.address}')
+        print(f'Description: {contact.description}')
         print('\n-----------------')
-    
 
-
-# saves each person element with birthday  before 1990, 6, 1 to people 
-# contacts = Contact.select().where(Contact.birthday < date(1990, 6, 1))
-
-# for loop that prints for each person in people 
-# for contact in contacts:
-#         print(contact.name)
-# Person.select()
-
-# Update:
-# zakk = Contact.get(Contact.name == 'Zakk')
-# zakk.birthday = date(1980, 11, 18)
-# zakk.save()
 def update_contact():
-    name = str(input("Enter the name of the contact you want to Update: "))
+    name = str(input("\nEnter the name of the contact you want to Update: "))
     contact = Contact.get(Contact.name == name)
+    get_contact(name)
     update = 0
     while update != 5:
         print('\nWhat Key would you like to update?\n')
