@@ -69,27 +69,30 @@ def update_contact():
         if(update == 1):
             print(f'Old Name: {contact.name}')
             contact.name = input("Enter New Name: ").upper()
+            contact.name = new_name.upper()
             contact.save()
             print('Name Changed!')
         elif(update == 2):
             print(f'Old Phone Number: {contact.phone}')
-            contact.phone = input("Enter New Phone Number: ").upper()
+            contact.phone = input("Enter New Phone Number: ")
             contact.save()
             print('Phone Number Changed!')            
         elif(update == 3):
             print(f'Old Address: {contact.address}')
             contact.address = input("Enter New Address: ").upper()
+            contact.address = new_address.upper()
             contact.save()
             print('Address Changed!')            
         elif(update == 4):
             print(f'Old Description: {contact.description}')
-            contact.description = input("Enter New Description: ").upper()
+            contact.description = input("Enter New Description: ")
+            contact.description = new_description.upper()
             contact.save()
             print('Description Changed!')            
 
 # Delete:
 def delete_contact():
-    name = (input("Enter the name of the contact you want to Delete: ").upper()
+    name.upper() = input("Enter the name of the contact you want to Delete: ")
     contact = Contact.get(Contact.name == name)
     contact.delete_instance()
     print("\n Deleted Contact!\n")
