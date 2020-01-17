@@ -92,7 +92,8 @@ def update_contact():
 
 # Delete:
 def delete_contact():
-    name.upper() = input("Enter the name of the contact you want to Delete: ")
+    name = input("Enter the name of the contact you want to Delete: ")
+    name = name.upper()
     contact = Contact.get(Contact.name == name)
     contact.delete_instance()
     print("\n Deleted Contact!\n")
