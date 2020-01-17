@@ -28,23 +28,24 @@ db.create_tables([Contact])
 
 #Create new Contact
 def create_contact():
-    new_name = input("Enter the Contact's Name: ")
-    new_phone = input("Enter the Contact's Phone Number: ")
-    new_address = input("Enter the Contact's Address: ")
-    new_description = input("Enter the Contact's description: ")
+    new_name = input("Enter the Contact's Name: ").upper()
+    new_phone = input("Enter the Contact's Phone Number: ").upper()
+    new_address = input("Enter the Contact's Address: ").upper()
+    new_description = input("Enter the Contact's description: ").upper()
     #Create new Contact Instance with users data
     new_contact = Contact(name=new_name, phone=new_phone, address=new_address, description=new_description)
     new_contact.save()
 
 # Read: (.get() and .select())
 def get_contact(name):
-    contact = Contact.get(Contact.name == name)
+    name_temp = name.upper()
+    contact = Contact.get(Contact.name == name_temp)
     print(f'Read name: {contact.name} Phone Number: {contact.phone} Address: {contact.address} Description: {contact.description}')
 
 # Use Select all contacts and a For Loop iterate through all contacts to print them
 def all_contacts():
     contacts = Contact.select()
-    print('\n--CONTACTS BOOK--')
+    print('\n--CONTACTS BOOK--\n')
     for contact in contacts:
         print(f'Name: {contact.name}')
         print(f'Phone Number: {contact.phone}')
@@ -67,28 +68,28 @@ def update_contact():
         update = int(input('Enter #:'))
         if(update == 1):
             print(f'Old Name: {contact.name}')
-            contact.name = input("Enter New Name: ")
+            contact.name = input("Enter New Name: ").upper()
             contact.save()
             print('Name Changed!')
         elif(update == 2):
             print(f'Old Phone Number: {contact.phone}')
-            contact.phone = input("Enter New Phone Number: ")
+            contact.phone = input("Enter New Phone Number: ").upper()
             contact.save()
             print('Phone Number Changed!')            
         elif(update == 3):
             print(f'Old Address: {contact.address}')
-            contact.address = input("Enter New Address: ")
+            contact.address = input("Enter New Address: ").upper()
             contact.save()
             print('Address Changed!')            
         elif(update == 4):
             print(f'Old Description: {contact.description}')
-            contact.description = input("Enter New Description: ")
+            contact.description = input("Enter New Description: ").upper()
             contact.save()
             print('Description Changed!')            
 
 # Delete:
 def delete_contact():
-    name = str(input("Enter the name of the contact you want to Delete: "))
+    name = (input("Enter the name of the contact you want to Delete: ").upper()
     contact = Contact.get(Contact.name == name)
     contact.delete_instance()
     print("\n Deleted Contact!\n")
