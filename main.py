@@ -68,7 +68,7 @@ def update_contact():
         update = int(input('Enter #:'))
         if(update == 1):
             print(f'Old Name: {contact.name}')
-            contact.name = input("Enter New Name: ").upper()
+            new_name = input("Enter New Name: ")
             contact.name = new_name.upper()
             contact.save()
             print('Name Changed!')
@@ -79,13 +79,13 @@ def update_contact():
             print('Phone Number Changed!')            
         elif(update == 3):
             print(f'Old Address: {contact.address}')
-            contact.address = input("Enter New Address: ").upper()
+            new_address = input("Enter New Address: ")
             contact.address = new_address.upper()
             contact.save()
             print('Address Changed!')            
         elif(update == 4):
             print(f'Old Description: {contact.description}')
-            contact.description = input("Enter New Description: ")
+            new_description = input("Enter New Description: ")
             contact.description = new_description.upper()
             contact.save()
             print('Description Changed!')            
