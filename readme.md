@@ -16,3 +16,7 @@ pipenv run python main.py
 ```
 
 3. Follow the prompts!
+
+## Screenshots
+
+![GitHub Logo](/img/contacts_book_menu.png)
