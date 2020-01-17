@@ -55,6 +55,7 @@ def all_contacts():
 
 def update_contact():
     name = str(input("\nEnter the name of the contact you want to Update: "))
+    name = name.upper()
     contact = Contact.get(Contact.name == name)
     get_contact(name)
     update = 0
